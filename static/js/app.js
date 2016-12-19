@@ -2,8 +2,6 @@
     'use strict';
 
     var HolidayApp = angular.module('christmas_app', [
-        'ngSanitize',
-        'ngResource',
         'ui.bootstrap',
         'ngTagsInput',
         'ui.router',
