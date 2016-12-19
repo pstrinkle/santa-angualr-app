@@ -1,0 +1,60 @@
+
+<br />
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 well">
+        <h2>Santa App v1.0</h2>
+        <form name="goodbadform" class="form-horizontal" ng-submit="connect()">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input class="form-control"
+                           type="text"
+                           id="name"
+                           name="name"
+                           placeholder="Enter your name*"
+                           ng-required="true"
+                           ng-model="name"
+                           ng-trim="true"
+                           ng-minlength="config.name.min_length"
+                           ng-maxlength="config.name.max_length" />
+                </div>
+                <div class="col-md-12" ng-show="goodbadform.name.$error.minlength">
+                    Name too short, minimum length <span ng-bind="config.name.min_length"></span>.
+                </div>
+                <div class="col-md-12" ng-show="goodbadform.name.$error.maxlength">
+                    Name too long, maximum length <span ng-bind="config.name.max_length"></span>.
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label>Please select</label>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-control"
+                            id="behavior"
+                            name="behavior"
+                            ng-required="true"
+                            ng-model="behavior"
+                            ng-options="t for t in config.types">
+                        <option value="" disabled selected>How was your behavior?</option>
+                    </select>
+                </div>
+                <div class="col-md-3" ng-show="behavior === 'good'">
+                    Are you sure?
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <button class="btn btn-primary"
+                            style="float:right;"
+                            ng-disabled="goodbadform.$invalid"
+                            type="submit">Connect</button>
+                </div>
+            </div>
+        </form>
+        <uib-progressbar ng-show="connecting" class="progress-striped active" value="dynamic"><i ng-bind="message"></i></uib-progressbar>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
