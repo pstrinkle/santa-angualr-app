@@ -30,7 +30,7 @@
         }).state('favorites', {
             name: 'favorites',
             url: '/favorites',
-            templateUrl: '/favorites.html',
+            templateUrl: 'favorites.html',
             controller: 'favoriteCtrl',
             params: {
                 gifts: [],
@@ -39,7 +39,7 @@
         }).state('submission', {
             name: 'submission',
             url: '/submission',
-            templateUrl: '/submission.html',
+            templateUrl: 'submission.html',
             controller: 'submissionCtrl',
             params: {
                 gifts: [],
